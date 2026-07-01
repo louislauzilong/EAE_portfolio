@@ -223,25 +223,47 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   padding: 3rem 2rem;
   margin: 3rem 0;
 }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
 .testimonial-card {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: 2rem;
   border-radius: 28px;
   background: rgba(0, 212, 255, 0.05);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
 }
 .testimonial-quote {
-  font-size: 1.25rem;
-  line-height: 1.9;
+  font-size: 1.15rem;
+  line-height: 1.8;
   color: var(--text-strong);
   font-style: italic;
   margin-bottom: 1.5rem;
 }
 .testimonial-author {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--accent-cyan);
   font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+.testimonial-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-cyan);
+  background: transparent;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  transition: background 0.25s, color 0.25s;
+}
+.testimonial-btn:hover {
+  background: rgba(0, 212, 255, 0.12);
+  color: #fff;
 }
 
 .contact-grid {
