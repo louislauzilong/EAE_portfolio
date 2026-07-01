@@ -300,7 +300,8 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 /* SLIDER */
 .slider-container {
   position: relative;
-  max-width: 1200px;
+  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 28px;
@@ -311,7 +312,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 .slider-wrapper { display: flex; transition: transform 0.4s ease-in-out; }
 .slide {
   min-width: 100%;
-  padding: 3rem 4rem;
+  padding: 2.5rem 3rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

@@ -50,7 +50,7 @@ const slidesData = [
       </div>
       <p>The project increased my interest in data collection and visual presentation. I learnt to look at data critically and understand that data science is about gaining insight and creating meaningful solutions.</p>
       <p>This was my first leadership experience – I assigned tasks, led meet-ups, and ensured timelines were met. I adapted to different circumstances and solved problems creatively.</p>
-      <a href="#" class="btn btn-small">Click here for the raw data!</a>
+      <a href="https://beattyss.sharepoint.com/:x:/s/2025Nexus3023A/IQBQcPStrfoIRpCPVol5a-jPAev6EZCbB202wrB5-4HWl34?e=dLRwtF" target="_blank" rel="noopener" class="btn btn-small">Click here for the raw data!</a>
     `
   },
   {
