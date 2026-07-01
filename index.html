@@ -8,446 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <style>
-    /* ===== Global styles – same as before ===== */
-    :root {
-      --bg-color: #0b0e14;
-      --surface: #121820;
-      --surface-soft: #1a2330;
-      --text-color: #b0c4de;
-      --text-strong: #e8edf5;
-      --accent-cyan: #00d4ff;
-      --accent-blue: #1a6bff;
-      --accent-teal: #00e5b0;
-      --border: rgba(0, 212, 255, 0.15);
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-      --font-sans: 'Inter', sans-serif;
-      --font-mono: 'Fira Code', monospace;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-      background-image: 
-        linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font-family: inherit; }
-
-    /* HEADER */
-    .header {
-      position: fixed; inset: 0 0 auto; z-index: 100; width: 100%;
-      padding: 1.2rem 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(11, 14, 20, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.05em; }
-    .logo span { color: var(--accent-cyan); }
-    .navbar { display: flex; align-items: center; gap: 2rem; }
-    .navbar a {
-      color: var(--text-color); font-size: 0.9rem; font-weight: 500;
-      transition: color 0.25s; position: relative;
-    }
-    .navbar a::after {
-      content: ''; position: absolute; bottom: -8px; left: 0;
-      width: 0; height: 2px; background: var(--accent-cyan);
-      transition: width 0.25s;
-    }
-    .navbar a:hover, .navbar a.active { color: var(--accent-cyan); }
-    .navbar a:hover::after, .navbar a.active::after { width: 100%; }
-    #menu-icon { display: none; font-size: 1.9rem; cursor: pointer; color: var(--text-strong); }
-
-    .btn, .btn-small {
-      display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 999px; padding: 0.9rem 2rem; font-weight: 600;
-      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-      border: none; cursor: pointer;
-    }
-    .btn {
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-      color: #fff; box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 28px 55px rgba(0, 212, 255, 0.35); }
-    .btn-outline {
-      background: transparent; border: 1px solid var(--accent-cyan);
-      color: var(--accent-cyan);
-    }
-    .btn-outline:hover { background: rgba(0, 212, 255, 0.08); }
-    .btn-small { background: rgba(255,255,255,0.06); color: var(--text-strong); padding: 0.7rem 1.4rem; font-size: 0.85rem; }
-    .btn-small:hover { background: rgba(0, 212, 255, 0.15); }
-
-    main { padding-top: 110px; }
-    section { padding: 6rem 5%; scroll-margin-top: 140px; }
-    .section-label {
-      display: inline-block; margin-bottom: 1rem;
-      color: var(--accent-cyan); text-transform: uppercase;
-      letter-spacing: 0.2em; font-size: 0.75rem; font-weight: 600;
-    }
-    .section-header h2 {
-      color: var(--text-strong);
-      font-size: clamp(2rem, 2.5vw, 2.8rem);
-      line-height: 1.1; margin-top: 0.8rem; max-width: 750px;
-    }
-
-    /* HERO, ABOUT, ACHIEVEMENTS, etc. – kept minimal for brevity */
-    .home {
-      display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;
-      gap: 3rem; min-height: calc(100vh - 110px);
-    }
-    .home-content h1 {
-      font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.05;
-      margin: 1rem 0 1.5rem;
-    }
-    .gradient-text {
-      background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan), var(--accent-teal));
-      background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .home-content p {
-      max-width: 620px; line-height: 1.8; margin-bottom: 2rem;
-      color: var(--text-color);
-    }
-    .home-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
-    .social-icons { display: flex; flex-wrap: wrap; gap: 1rem; }
-    .social-icons a {
-      width: 3rem; height: 3rem; display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 50%; border: 1px solid var(--border);
-      color: var(--accent-cyan); transition: 0.25s;
-    }
-    .social-icons a:hover {
-      transform: translateY(-5px); background: var(--accent-cyan); color: var(--bg-color);
-    }
-    .home-image { position: relative; display: flex; justify-content: center; align-items: center; }
-    .profile-ring {
-      position: absolute; width: 360px; height: 360px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
-      filter: blur(30px);
-    }
-    .home-image img {
-      width: 320px; height: 320px; object-fit: cover; border-radius: 50%;
-      border: 3px solid var(--border); box-shadow: 0 20px 80px rgba(0,212,255,0.1);
-      transition: 0.35s; position: relative;
-      background: var(--surface-soft);
-    }
-    .home-image img:hover { transform: scale(1.02); box-shadow: 0 25px 90px rgba(0,212,255,0.25); }
-
-    .about {
-      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem;
-      align-items: center; background: rgba(255,255,255,0.02);
-      border-radius: 32px; padding: 5rem;
-    }
-    .about-image img {
-      width: 100%; border-radius: 28px; border: 1px solid var(--border);
-      background: var(--surface-soft);
-      min-height: 200px;
-      object-fit: cover;
-    }
-    .about-content h2 { font-size: clamp(2rem, 2.8vw, 3.2rem); margin-bottom: 1.5rem; }
-    .about-content p { line-height: 1.8; margin-bottom: 2rem; }
-    .about-highlights {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;
-    }
-    .about-highlights div {
-      padding: 1.35rem 1.5rem; border-radius: 1.2rem;
-      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    }
-    .about-highlights strong {
-      display: block; font-size: 1.5rem; color: var(--text-strong);
-      margin-bottom: 0.35rem; font-family: var(--font-mono);
-    }
-    .about-highlights span { font-size: 0.9rem; color: var(--text-color); }
-
-    .data-stats {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-      margin: 3rem 0 2rem;
-    }
-    .stat-item {
-      text-align: center; padding: 1.5rem 1rem;
-      background: rgba(0,212,255,0.04); border-radius: 20px;
-      border: 1px solid var(--border);
-    }
-    .stat-item .number {
-      font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700;
-      color: var(--accent-cyan); display: block;
-    }
-    .stat-item .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-color); }
-
-    .grid-container {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; margin-top: 3rem;
-    }
-    .card, .project-card {
-      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-      border-radius: 28px; padding: 2rem;
-      transition: transform 0.3s, border-color 0.3s, background 0.3s;
-    }
-    .card:hover, .project-card:hover {
-      transform: translateY(-8px); border-color: var(--accent-cyan);
-      background: rgba(0,212,255,0.04);
-    }
-    .card i { font-size: 2.6rem; color: var(--accent-cyan); margin-bottom: 1.4rem; }
-    .card h3, .project-info h3 {
-      font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-strong);
-    }
-    .card p, .project-info p { line-height: 1.8; color: var(--text-color); }
-
-    .card .img-placeholder {
-      margin-top: 1rem;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      width: 100%;
-      height: 150px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-color);
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-    .card .img-placeholder i {
-      font-size: 2rem;
-      color: var(--accent-cyan);
-      margin-right: 0.5rem;
-    }
-
-    .project-card {
-      display: grid; grid-template-columns: 140px 1fr; gap: 1.5rem;
-      align-items: center;
-    }
-    .project-card img {
-      width: 100%; height: 160px; object-fit: cover; border-radius: 22px;
-      background: var(--surface-soft);
-    }
-    .project-info { display: flex; flex-direction: column; gap: 0.8rem; }
-
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem;
-      align-items: start;
-    }
-    .contact-text {
-      padding: 2.5rem; border-radius: 28px;
-      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-    }
-    .contact-text p { line-height: 1.8; }
-    .contact-form {
-      display: grid; gap: 1.25rem;
-      background: rgba(255,255,255,0.02); border-radius: 28px;
-      padding: 2.5rem; border: 1px solid var(--border);
-    }
-    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: 1rem 1.2rem; border-radius: 18px;
-      border: 1px solid var(--border); background: rgba(255,255,255,0.04);
-      color: var(--text-strong); outline: none;
-    }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent-cyan); }
-    .contact-form textarea { resize: vertical; }
-
-    .footer {
-      padding: 2rem 5% 3rem; display: flex; justify-content: space-between;
-      align-items: center; border-top: 1px solid var(--border);
-    }
-    .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .footer-links a { color: var(--text-color); transition: color 0.25s; }
-    .footer-links a:hover { color: var(--accent-cyan); }
-
-    /* ===== SLIDER (Presentation Style) ===== */
-    .slider-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      box-shadow: var(--shadow);
-    }
-    .slider-wrapper { display: flex; transition: transform 0.4s ease-in-out; }
-    .slide {
-      min-width: 100%;
-      padding: 3rem 4rem;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,212,255,0.02));
-      border-radius: 28px;
-    }
-    .slide h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--text-strong);
-      text-align: center;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .slide h3 {
-      font-size: 1.8rem;
-      color: var(--text-strong);
-      margin-top: 1rem;
-    }
-    .slide p, .slide li {
-      line-height: 1.8;
-      color: var(--text-color);
-      font-size: 1.1rem;
-    }
-    .slide ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .slide ul li::before {
-      content: "▹ ";
-      color: var(--accent-cyan);
-    }
-    .slide .slide-img {
-      max-width: 100%;
-      max-height: 300px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      margin: 0.5rem auto;
-      object-fit: contain;
-      background: var(--surface-soft);
-    }
-    .slide .table-wrap {
-      overflow-x: auto;
-      margin: 1rem 0;
-    }
-    .slide table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-    }
-    .slide table th, .slide table td {
-      border: 1px solid var(--border);
-      padding: 0.8rem 1.2rem;
-      text-align: center;
-      color: var(--text-color);
-    }
-    .slide table th {
-      background: rgba(0,212,255,0.08);
-      color: var(--text-strong);
-      font-weight: 600;
-    }
-    .slide .course-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-    .slide .course-item {
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-    }
-    .slide .course-item strong {
-      color: var(--accent-cyan);
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .slider-controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      padding-bottom: 1rem;
-    }
-    .slider-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--accent-cyan);
-      font-size: 2rem;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-    .slider-btn:hover { background: rgba(0,212,255,0.1); border-color: var(--accent-cyan); }
-    .slider-dots { display: flex; gap: 0.6rem; }
-    .slider-dots button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: transparent;
-      cursor: pointer;
-      transition: 0.25s;
-      padding: 0;
-    }
-    .slider-dots button.active { background: var(--accent-cyan); border-color: var(--accent-cyan); }
-    .slide-number {
-      color: var(--text-color);
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .glitch-hover { transition: color 0.3s, text-shadow 0.3s; }
-    .glitch-hover:hover { color: var(--accent-cyan); text-shadow: 0 0 20px rgba(0,212,255,0.3); }
-
-    .about-summary {
-      display: flex; align-items: center; gap: 0.8rem;
-      cursor: pointer; font-weight: 600; color: var(--accent-cyan);
-      list-style: none; margin-bottom: 1rem;
-    }
-    .about-summary::-webkit-details-marker { display: none; }
-    .about-arrow { transition: transform 0.3s; }
-    .about-expand[open] .about-arrow { transform: rotate(180deg); }
-    .about-details-content p { margin-bottom: 1rem; }
-
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 1024px) {
-      .about, .contact-grid { grid-template-columns: 1fr; }
-      .about { padding: 3rem; }
-    }
-    @media (max-width: 820px) {
-      section { padding: 4rem 4%; }
-      .home { grid-template-columns: 1fr; text-align: center; }
-      .home-image { margin-top: 3rem; }
-      .home-content h1 { font-size: 3rem; }
-      .navbar {
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(11,14,20,0.96); flex-direction: column;
-        align-items: flex-start; padding: 1.4rem 5%; gap: 1rem;
-        transform: translateY(-10px); opacity: 0; visibility: hidden;
-        transition: 0.25s;
-        display: none;
-      }
-      .navbar.active { display: flex; transform: translateY(0); opacity: 1; visibility: visible; }
-      #menu-icon { display: block; }
-      .project-card { grid-template-columns: 1fr; }
-      .project-card img { height: auto; min-height: 160px; }
-      .input-row { grid-template-columns: 1fr; }
-      .data-stats { grid-template-columns: 1fr 1fr; }
-      .slide { padding: 2rem 1.5rem; }
-      .slide h2 { font-size: 2.2rem; }
-      .slider-btn { width: 40px; height: 40px; font-size: 1.5rem; }
-    }
-    @media (max-width: 520px) {
-      .data-stats { grid-template-columns: 1fr; }
-      .slide .course-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
@@ -487,14 +48,14 @@
       </div>
       <div class="home-image reveal">
         <div class="profile-ring"></div>
-        <img src="assets/images/potrait.png" alt="Louis Lau portrait" />
+        <img src="assets/images/portrait.png" alt="Louis Lau portrait" />
       </div>
     </section>
 
     <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
       <div class="about-image reveal">
-        <img src="assets/images/potrait.png" alt="About Louis" />
+        <img src="assets/images/portrait.png" alt="About Louis" />
       </div>
       <div class="about-content reveal">
         <span class="section-label">About Me</span>
@@ -545,6 +106,7 @@
           <h3>Nexus A*STAR</h3>
           <p>Led a research project on data collection, analysis and presentation – Certificate of Merit.</p>
           <div class="img-placeholder"><i class="bx bx-image"></i> nexus_poster.png</div>
+          <a href="https://canva.link/p6xltrom7yed9pw" target="_blank" rel="noopener" class="btn btn-small" style="margin-top:1rem;">View poster on Canva</a>
         </article>
         <article class="card reveal">
           <i class="bx bx-certification"></i>
@@ -577,12 +139,27 @@
         <div class="slider-wrapper" id="sliderWrapper">
           <!-- Slides injected by JS -->
         </div>
+        <div class="portfolio-cta-bar reveal">
+          <a href="https://canva.link/puob1fo90o8rlx7" target="_blank" rel="noopener" class="btn btn-small">Click here for full portfolio</a>
+        </div>
         <div class="slider-controls">
           <button class="slider-btn" id="prevSlide"><i class="bx bx-chevron-left"></i></button>
           <div class="slider-dots" id="dotsContainer"></div>
           <span class="slide-number" id="slideNumber">1 / 12</span>
           <button class="slider-btn" id="nextSlide"><i class="bx bx-chevron-right"></i></button>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonials" id="testimonials">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonial</span>
+        <h2 class="glitch-hover">What mentors say about my work</h2>
+      </div>
+      <div class="testimonial-card reveal">
+        <p class="testimonial-quote">"[Paste your testimonial text here. Replace this text with the actual testimonial from your PDF.]"</p>
+        <div class="testimonial-author">— [Name], [Role or Source]</div>
       </div>
     </section>
 
@@ -594,7 +171,7 @@
       </div>
       <div class="grid-container">
         <article class="project-card reveal">
-          <img src="assets/images/nexus.webp" alt="Nexus A*STAR research" />
+          <img src="assets/images/nexus.png" alt="Nexus A*STAR research" />
           <div class="project-info">
             <h3>Nexus A*STAR – Memory &amp; Music Study</h3>
             <p>Led a team to investigate if classical piano music improves memory. Designed experiments, analysed data, and presented findings.</p>
@@ -602,7 +179,7 @@
           </div>
         </article>
         <article class="project-card reveal">
-          <img src="microbit_prototype.jpg" alt="Micro:bit prototype" />
+          <img src="assets/images/microbit.png" alt="Micro:bit prototype" />
           <div class="project-info">
             <h3>Micro:bit Back Massager</h3>
             <p>Designed a prototype using Micro:bit, applied coding and iterative feedback to improve the design.</p>
@@ -610,7 +187,7 @@
           </div>
         </article>
         <article class="project-card reveal">
-          <img src="dashboard_placeholder.jpg" alt="Data dashboard" />
+          <img src="assets/images/image.webp" alt="Dashboard placeholder" />
           <div class="project-info">
             <h3>Interactive Data Dashboard</h3>
             <p>Built with Python and Plotly – visualises trends from public datasets.</p>
@@ -632,6 +209,10 @@
             Have a question, project idea, or just want to chat about data and AI?
             I'm open to collaborations, mentorship, and discussions about how
             technology can solve real problems. Reach out anytime!
+          </p>
+          <p style="margin-top:1rem; font-weight:600;">
+            You can also email me directly at
+            <a href="mailto:Louislauzilong@outlook.com">Louislauzilong@outlook.com</a>
           </p>
         </div>
         <form action="https://formspree.io/f/xkoaovke" method="POST" class="contact-form reveal" id="contact-form">
@@ -671,392 +252,6 @@
     </div>
   </div>
 
-  <script>
-    // ===== SLIDE DATA (exactly from your PDF) =====
-    const slidesData = [
-      {
-        title: "My Journey through Data Analytics",
-        content: `
-          <p style="font-size:1.3rem; text-align:center; margin-bottom:0.5rem;">Exploring patterns, solving problems and transforming information into insights</p>
-          <div class="course-grid">
-            <div class="course-item"><strong>TP</strong> Diploma in Big Data & Analytics (T60)</div>
-            <div class="course-item"><strong>SP</strong> Diploma in AI and Analytics (S30)</div>
-            <div class="course-item"><strong>NP</strong> Diploma in Applied AI & Analytics (N81)</div>
-          </div>
-        `
-      },
-      {
-        title: "About Me",
-        content: `
-          <p>I am Louis from Beatty Secondary School and I am graduating in 2026.</p>
-          <p><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</p>
-          <p>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</p>
-          <img src="assets/images/potrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%;" />
-        `
-      },
-      {
-        title: "Why do I want to do Data Analytics?",
-        content: `
-          <p>I was fascinated by how platforms such as TikTok are able to recommend content that matches users' interests (the For You Page). I learnt that these recommendations come from collecting and analysing large amounts of user data to provide added value.</p>
-          <p>When analysed effectively, data has the ability to reveal patterns, predict user behaviour and help organizations make better decisions. This sparked my curiosity on how data can influence decisions and improve services around us.</p>
-        `
-      },
-      {
-        title: "Nexus A*STAR Project Overview",
-        content: `
-          <p>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</p>
-          <p>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</p>
-          <img src="assets/images/nexus.webp" alt="Nexus A*STAR poster" class="slide-img" />
-          <a href="https://www.canva.com/design/DAG5T5_jC5Y/mdqjJ1BwdppSNg45KKj_Mg/edit" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
-        `
-      },
-      {
-        title: "Data Analysis Process & Reflection",
-        content: `
-          <p>Using Excel we calculated the average scores and plotted the data onto a graph to see the correlation between music and improved memory.</p>
-          <div class="table-wrap">
-            <table>
-              <tr><th>Role</th><th>Avg with music</th><th>Avg without music</th><th>Difference</th></tr>
-              <tr><td>Student</td><td>11.8</td><td>11.9</td><td>-0.1</td></tr>
-              <tr><td>Teacher</td><td>15.0</td><td>11.0</td><td>+4.0</td></tr>
-              <tr><td><strong>Overall</strong></td><td><strong>11.9</strong></td><td><strong>11.2</strong></td><td><strong>+0.7</strong></td></tr>
-            </table>
-          </div>
-          <p>The project increased my interest in data collection and visual presentation. I learnt to look at data critically and understand that data science is about gaining insight and creating meaningful solutions.</p>
-          <p>This was my first leadership experience – I assigned tasks, led meet-ups, and ensured timelines were met. I adapted to different circumstances and solved problems creatively.</p>
-          <a href="#" class="btn btn-small">Click here for the raw data!</a>
-        `
-      },
-      {
-        title: "What I plan to learn",
-        content: `
-          <h3>My current skillset:</h3>
-          <ul>
-            <li>Excel for data analysis</li>
-            <li>Microbit programming</li>
-            <li>Research and identifying variables</li>
-            <li>Problem Solving</li>
-            <li>Leading a team</li>
-            <li>Data Interpretation</li>
-          </ul>
-          <h3>What I look forward to learn:</h3>
-          <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Machine Learning</li>
-            <li>More complex Data visualisation methods</li>
-          </ul>
-        `
-      },
-      {
-        title: "My Achievements / Leadership (Part 1)",
-        content: `
-          <img src="peer_support_leader.png" alt="Peer Support Leader" class="slide-img" />
-          <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</p>
-          <img src="microbit_prototype.jpg" alt="Micro:bit prototype" class="slide-img" />
-          <p>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
-        `
-      },
-      {
-        title: "My Achievements / Leadership (Part 2)",
-        content: `
-          <img src="assets/images/microbit.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
-          <p>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</p>
-          <img src="via_cca_records.png" alt="CCA and VIA" class="slide-img" />
-          <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</p>
-          <p>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</p>
-        `
-      },
-      {
-        title: "My Choices in EAE courses",
-        content: `
-          <div class="course-grid">
-            <div class="course-item">
-              <strong>TP – Big Data & Analytics (T60)</strong>
-              <ul style="margin-top:0.5rem;">
-                <li>Focuses specifically on data analytics</li>
-                <li>Develop skills to support business decisions</li>
-                <li>I take POA, so I can apply accounting skills</li>
-                <li>Learn how Big Data is harnessed</li>
-              </ul>
-            </div>
-            <div class="course-item">
-              <strong>SP – Applied AI & Analytics (S30)</strong>
-              <ul style="margin-top:0.5rem;">
-                <li>Explore programming and machine learning</li>
-                <li>Generate insights into analytics</li>
-                <li>Learn how people look at data</li>
-              </ul>
-            </div>
-            <div class="course-item">
-              <strong>NP – Applied AI & Analytics (N81)</strong>
-              <ul style="margin-top:0.5rem;">
-                <li>Build knowledge in intelligent systems and AI</li>
-                <li>Incorporate AI and Data to make life convenient</li>
-                <li>Enhance digital literacy – my dad uses Power BI!</li>
-              </ul>
-            </div>
-          </div>
-        `
-      },
-      {
-        title: "Thank you for your consideration!",
-        content: `
-          <p style="font-size:2.5rem; font-weight:700; color:var(--accent-cyan); text-align:center;">Lau Zi Long Louis</p>
-          <p style="font-size:1.4rem; text-align:center;">Looking forward to starting my Poly life in your school!</p>
-          <img src="assets/images/potrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%; margin-top:1rem;" />
-        `
-      },
-      {
-        title: "What is a Data Analyst?",
-        content: `
-          <p style="font-size:1.6rem; font-weight:500; text-align:center;">A Data Analyst is a professional who collects, processes, and analyzes data to support decision making.</p>
-        `
-      },
-      {
-        title: "Developing Solutions through Technology",
-        content: `
-          <h3>Micro:bit Experience</h3>
-          <ul>
-            <li>Learnt coding fundamentals</li>
-            <li>Designed a prototype with my team</li>
-            <li>Improved design based on user feedback</li>
-          </ul>
-          <p style="font-style:italic; color:var(--accent-cyan); font-size:1.2rem;">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</p>
-          <img src="microbit_prototype.jpg" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
-        `
-      }
-      ,
-      {
-        title: "Portrait",
-        content: `
-          <img src="assets/images/potrait.png" alt="Portrait selfie" class="slide-img" style="max-height:320px; width:auto; border-radius:12px;" />
-        `
-      },
-      {
-        title: "Nexus Poster",
-        content: `
-          <img src="assets/images/nexus.webp" alt="Nexus poster" class="slide-img" />
-        `
-      },
-      {
-        title: "Young Engineer Award",
-        content: `
-          <img src="assets/images/microbit.webp" alt="Young Engineer Award certificate" class="slide-img" style="max-height:420px;" />
-        `
-      },
-      {
-        title: "Group Photo",
-        content: `
-          <img src="assets/images/image.wedp" alt="Group photo" class="slide-img" />
-        `
-      },
-      {
-        title: "Applied Learning Programme",
-        content: `
-          <img src="assets/images/ALP.wedp" alt="Applied Learning Programme" class="slide-img" />
-        `
-      }
-    ];
-
-
-    // ===== SLIDER LOGIC (unchanged) =====
-    let currentSlide = 0;
-    const wrapper = document.getElementById('sliderWrapper');
-    const dotsContainer = document.getElementById('dotsContainer');
-    const slideNumber = document.getElementById('slideNumber');
-    const prevBtn = document.getElementById('prevSlide');
-    const nextBtn = document.getElementById('nextSlide');
-
-    function renderSlides() {
-      wrapper.innerHTML = '';
-      slidesData.forEach((slide) => {
-        const div = document.createElement('div');
-        div.className = 'slide';
-        div.innerHTML = `<h2>${slide.title}</h2>${slide.content}`;
-        wrapper.appendChild(div);
-      });
-      dotsContainer.innerHTML = '';
-      slidesData.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.setAttribute('data-index', i);
-        dot.classList.toggle('active', i === 0);
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-      });
-      updateSlide();
-    }
-
-    function updateSlide() {
-      wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-      document.querySelectorAll('.slider-dots button').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-      slideNumber.textContent = `${currentSlide + 1} / ${slidesData.length}`;
-    }
-
-    function goToSlide(index) {
-      if (index < 0) index = slidesData.length - 1;
-      if (index >= slidesData.length) index = 0;
-      currentSlide = index;
-      updateSlide();
-    }
-
-    prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
-      if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
-    });
-    renderSlides();
-
-    // ===== TYPEWRITER =====
-    (function() {
-      const nameEl = document.getElementById('typewriter-name');
-      if (!nameEl) return;
-      const text = 'Louis Lau';
-      let index = 0;
-      function type() {
-        if (index < text.length) {
-          nameEl.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 100);
-        }
-      }
-      window.addEventListener('load', () => setTimeout(type, 300));
-    })();
-
-    // ===== AUTO-EXPAND ABOUT =====
-    (function() {
-      const aboutDetails = document.getElementById('about-details');
-      if (!aboutDetails) return;
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setTimeout(() => aboutDetails.setAttribute('open', ''), 400);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.3 });
-      observer.observe(aboutDetails);
-    })();
-
-    // ===== SCROLL REVEAL =====
-    (function() {
-      const revealElements = document.querySelectorAll('.reveal');
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.15 });
-      revealElements.forEach(el => revealObserver.observe(el));
-    })();
-
-    // ===== MOBILE MENU =====
-    const menuIcon = document.querySelector('#menu-icon');
-    const navbar = document.querySelector('#navbar');
-    const navLinks = document.querySelectorAll('#navbar a');
-
-    menuIcon.addEventListener('click', () => {
-      const open = !navbar.classList.contains('active');
-      menuIcon.classList.toggle('bx-x');
-      navbar.classList.toggle('active');
-      menuIcon.setAttribute('aria-expanded', String(open));
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-        menuIcon.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 140;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        if (!sectionId) return;
-        const activeLink = document.querySelector(`.navbar a[href="#${sectionId}"]`);
-        if (!activeLink) return;
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          activeLink.classList.add('active');
-        } else {
-          activeLink.classList.remove('active');
-        }
-      });
-      if (window.innerWidth <= 820) {
-        navbar.classList.remove('active');
-        menuIcon.classList.remove('bx-x');
-        menuIcon.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // ===== CONTACT FORM =====
-    (function() {
-      const modalOverlay = document.querySelector('#thankyou-modal');
-      const modal = modalOverlay ? modalOverlay.querySelector('.modal') : null;
-      const modalClose = modalOverlay ? modalOverlay.querySelector('.modal-close') : null;
-      const modalOk = modalOverlay ? modalOverlay.querySelector('.modal-ok') : null;
-
-      function showModal() {
-        if (!modalOverlay || !modal) return;
-        modalOverlay.style.display = 'grid';
-        requestAnimationFrame(() => modal.classList.add('show'));
-      }
-
-      function hideModal() {
-        if (!modalOverlay || !modal) return;
-        modal.classList.remove('show');
-        setTimeout(() => modalOverlay.style.display = 'none', 260);
-      }
-
-      if (modalClose) modalClose.addEventListener('click', hideModal);
-      if (modalOk) modalOk.addEventListener('click', hideModal);
-      if (modalOverlay) modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) hideModal();
-      });
-
-      const contactForm = document.querySelector('#contact-form');
-      const formSuccess = document.querySelector('#form-success');
-      const formError = document.querySelector('#form-error');
-
-      if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          if (formSuccess) { formSuccess.textContent = ''; formSuccess.style.display = 'none'; }
-          if (formError) { formError.textContent = ''; formError.style.display = 'none'; }
-          const formData = new FormData(contactForm);
-          try {
-            const response = await fetch(contactForm.action, {
-              method: 'POST',
-              headers: { Accept: 'application/json' },
-              body: formData,
-            });
-            if (response.ok) {
-              showModal();
-              contactForm.reset();
-            } else {
-              const data = await response.json();
-              if (formError) {
-                formError.textContent = data.error || 'There was a problem. Please try again.';
-                formError.style.display = 'block';
-              }
-            }
-          } catch (error) {
-            if (formError) {
-              formError.textContent = 'Network error. Please check your connection.';
-              formError.style.display = 'block';
-            }
-          }
-        });
-      }
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

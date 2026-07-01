@@ -216,6 +216,34 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 }
 .project-info { display: flex; flex-direction: column; gap: 0.8rem; }
 
+.testimonials {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 3rem 2rem;
+  margin: 3rem 0;
+}
+.testimonial-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  border-radius: 28px;
+  background: rgba(0, 212, 255, 0.05);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+}
+.testimonial-quote {
+  font-size: 1.25rem;
+  line-height: 1.9;
+  color: var(--text-strong);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.testimonial-author {
+  font-size: 1rem;
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
 .contact-grid {
   display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem;
   align-items: start;
@@ -345,6 +373,14 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   display: block;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+}
+
+.portfolio-cta-bar {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0.75rem 0;
+  background: rgba(0, 212, 255, 0.06);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.12);
 }
 
 .slider-controls {

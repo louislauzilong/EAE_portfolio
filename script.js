@@ -17,7 +17,7 @@ const slidesData = [
       <p>I am Louis from Beatty Secondary School and I am graduating in 2026.</p>
       <p><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</p>
       <p>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</p>
-      <img src="portrait.jpg" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%;" />
+      <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%;" />
     `
   },
   {
@@ -32,7 +32,7 @@ const slidesData = [
     content: `
       <p>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</p>
       <p>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</p>
-      <img src="nexus_poster.png" alt="Nexus A*STAR poster" class="slide-img" />
+      <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img" />
       <a href="#" class="btn btn-small">Click here for the poster in HD</a>
     `
   },
@@ -77,18 +77,18 @@ const slidesData = [
   {
     title: "My Achievements / Leadership (Part 1)",
     content: `
-      <img src="peer_support_leader.png" alt="Peer Support Leader" class="slide-img" />
+      <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img" />
       <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</p>
-      <img src="microbit_prototype.jpg" alt="Micro:bit prototype" class="slide-img" />
+      <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img" />
       <p>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
     `
   },
   {
     title: "My Achievements / Leadership (Part 2)",
     content: `
-      <img src="young_engineer_award.png" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
+      <img src="assets/images/image.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
       <p>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</p>
-      <img src="via_cca_records.png" alt="CCA and VIA" class="slide-img" />
+      <img src="assets/images/VIA.webp" alt="CCA and VIA" class="slide-img" />
       <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</p>
       <p>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</p>
     `
@@ -130,7 +130,7 @@ const slidesData = [
     content: `
       <p style="font-size:2.5rem; font-weight:700; color:var(--accent-cyan); text-align:center;">Lau Zi Long Louis</p>
       <p style="font-size:1.4rem; text-align:center;">Looking forward to starting my Poly life in your school!</p>
-      <img src="portrait.jpg" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%; margin-top:1rem;" />
+      <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%; margin-top:1rem;" />
     `
   },
   {
@@ -149,7 +149,7 @@ const slidesData = [
         <li>Improved design based on user feedback</li>
       </ul>
       <p style="font-style:italic; color:var(--accent-cyan); font-size:1.2rem;">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</p>
-      <img src="microbit_prototype.jpg" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
+      <img src="assets/images/microbit.png" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
     `
   }
 ];
