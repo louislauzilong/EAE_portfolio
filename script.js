@@ -21,7 +21,7 @@ const slidesData = [
         <li><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</li>
         <li>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</li>
       </ul>
-      <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%;" />
+      <img src="assets/images/slide2-photo.jpeg" alt="Louis with cat" class="slide-img slide2-portrait" />
     `
   },
   {
@@ -40,7 +40,7 @@ const slidesData = [
         <li>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</li>
         <li>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</li>
       </ul>
-      <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img" />
+      <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img slide4-poster" />
       <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
     `
   },
@@ -145,10 +145,11 @@ const slidesData = [
   {
     title: "My Achievements / Leadership (Part 1)",
     content: `
-      <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img landscape-image" />
+      <img src="assets/images/image.png" alt="Certificate of Merit" class="slide-img landscape-image slide8-certificate" />
       <ul>
         <li>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</li>
       </ul>
+      <a href="assets/images/term3-class-bonding-activities.pdf" target="_blank" rel="noopener" class="btn btn-small" aria-label="View some activities I did in PDF format">view some activities I did</a>
       <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img landscape-image rotated-landscape-image reverse" />
       <ul>
         <li>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</li>
@@ -244,7 +245,7 @@ function renderSlides() {
   wrapper.innerHTML = '';
   slidesData.forEach((slide, index) => {
     const div = document.createElement('div');
-    div.className = 'slide';
+    div.className = `slide slide--${index + 1}`;
     div.innerHTML = `
       <div class="slide-shell">
         <span class="slide-badge">Slide ${index + 1}</span>
@@ -309,10 +310,12 @@ function handleTouchEnd(event) {
 function renderFullscreenSlide() {
   if (!fullscreenContent) return;
   fullscreenContent.innerHTML = `
-    <div class="slide-shell">
-      <span class="slide-badge">Slide ${currentSlide + 1}</span>
-      <h2>${slidesData[currentSlide].title}</h2>
-      <div class="slide-body">${slidesData[currentSlide].content}</div>
+    <div class="slide slide--${currentSlide + 1}">
+      <div class="slide-shell">
+        <span class="slide-badge">Slide ${currentSlide + 1}</span>
+        <h2>${slidesData[currentSlide].title}</h2>
+        <div class="slide-body">${slidesData[currentSlide].content}</div>
+      </div>
     </div>
   `;
   if (fullscreenCounter) {
