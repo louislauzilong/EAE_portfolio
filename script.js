@@ -3,7 +3,7 @@ const slidesData = [
   {
     title: "My Journey through Data Analytics",
     content: `
-      <p style="font-size:1.3rem; text-align:center; margin-bottom:0.5rem;">Exploring patterns, solving problems and transforming information into insights</p>
+      <p style="font-size:1.3rem; text-align:center; margin-bottom:0.5rem;">Exploring patterns, solving problems and turning information into insight</p>
       <div class="course-grid">
         <div class="course-item"><strong>TP</strong> Diploma in Big Data & Analytics (T60)</div>
         <div class="course-item"><strong>SP</strong> Diploma in AI and Analytics (S30)</div>
@@ -28,10 +28,10 @@ const slidesData = [
     `
   },
   {
-    title: "Analysing Data to Solve Real-world Problems",
+    title: "Nexus A*STAR Project Overview",
     content: `
       <p>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</p>
-      <p>I wanted to learn more about how people’s brains functioned, translating that into data. I researched previous studies on how music may affect memory and we designed and conducted our own tests.</p>
+      <p>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</p>
       <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img" />
       <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
     `
@@ -75,26 +75,26 @@ const slidesData = [
     `
   },
   {
-    title: "My Achievements / Leadership",
+    title: "My Achievements / Leadership (Part 1)",
     content: `
       <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img" />
-      <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I also spearheaded bonding-related activities, efforts to thank the canteen vendors, and promoted cyberwellness.</p>
+      <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</p>
       <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img" />
-      <p>My team and I created a back massager with the aim to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
+      <p>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
     `
   },
   {
-    title: "My Achievements / Leadership",
+    title: "My Achievements / Leadership (Part 2)",
     content: `
       <img src="assets/images/image.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
       <p>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</p>
       <img src="assets/images/VIA.webp" alt="CCA and VIA" class="slide-img" />
-      <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school.</p>
+      <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</p>
       <p>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</p>
     `
   },
   {
-    title: "My Choices in EAE Courses",
+    title: "My Choices in EAE courses",
     content: `
       <div class="course-grid">
         <div class="course-item">
@@ -103,7 +103,7 @@ const slidesData = [
             <li>Focuses specifically on data analytics</li>
             <li>Develop skills to support business decisions</li>
             <li>I take POA, so I can apply accounting skills</li>
-            <li>I want to learn more about big data and how it is harnessed</li>
+            <li>Learn how Big Data is harnessed</li>
           </ul>
         </div>
         <div class="course-item">
@@ -111,15 +111,15 @@ const slidesData = [
           <ul style="margin-top:0.5rem;">
             <li>Explore programming and machine learning</li>
             <li>Generate insights into analytics</li>
-            <li>Learn how AI and data work together</li>
+            <li>Learn how people look at data</li>
           </ul>
         </div>
         <div class="course-item">
           <strong>NP – Applied AI & Analytics (N81)</strong>
           <ul style="margin-top:0.5rem;">
             <li>Build knowledge in intelligent systems and AI</li>
-            <li>Incorporate AI and data to make life more convenient</li>
-            <li>Develop practical skills through industry-linked learning</li>
+            <li>Incorporate AI and Data to make life convenient</li>
+            <li>Enhance digital literacy – my dad uses Power BI!</li>
           </ul>
         </div>
       </div>
@@ -161,13 +161,22 @@ const dotsContainer = document.getElementById('dotsContainer');
 const slideNumber = document.getElementById('slideNumber');
 const prevBtn = document.getElementById('prevSlide');
 const nextBtn = document.getElementById('nextSlide');
+const sliderContainer = document.querySelector('.slider-container');
+let touchStartX = 0;
+let touchStartY = 0;
 
 function renderSlides() {
   wrapper.innerHTML = '';
-  slidesData.forEach((slide) => {
+  slidesData.forEach((slide, index) => {
     const div = document.createElement('div');
     div.className = 'slide';
-    div.innerHTML = `<h2>${slide.title}</h2>${slide.content}`;
+    div.innerHTML = `
+      <div class="slide-shell">
+        <span class="slide-badge">Slide ${index + 1}</span>
+        <h2>${slide.title}</h2>
+        <div class="slide-body">${slide.content}</div>
+      </div>
+    `;
     wrapper.appendChild(div);
   });
   dotsContainer.innerHTML = '';
@@ -199,12 +208,55 @@ function goToSlide(index) {
   updateSlide();
 }
 
+function handleTouchStart(event) {
+  const touch = event.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+}
+
+function handleTouchEnd(event) {
+  const touch = event.changedTouches[0];
+  const deltaX = touch.clientX - touchStartX;
+  const deltaY = touch.clientY - touchStartY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 60) {
+    if (deltaX < 0) {
+      goToSlide(currentSlide + 1);
+    } else {
+      goToSlide(currentSlide - 1);
+    }
+  }
+
+  touchStartX = 0;
+  touchStartY = 0;
+}
+
 prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
 nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
-  if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
-});
+
+if (sliderContainer) {
+  sliderContainer.setAttribute('tabindex', '0');
+  sliderContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+  sliderContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+  sliderContainer.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goToSlide(currentSlide - 1);
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goToSlide(currentSlide + 1);
+    }
+    if (event.key === 'Home') {
+      event.preventDefault();
+      goToSlide(0);
+    }
+    if (event.key === 'End') {
+      event.preventDefault();
+      goToSlide(slidesData.length - 1);
+    }
+  });
+}
 renderSlides();
 
 // ===== TYPEWRITER =====
