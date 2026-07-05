@@ -323,6 +323,16 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,212,255,0.02));
   border-radius: 28px;
 }
+.slide > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.slide .btn, .slide .btn-small {
+  width: fit-content;
+  margin: 0.25rem auto 0;
+}
 .slide h2 {
   font-size: clamp(1.6rem, 2.1vw, 2.2rem);
   font-weight: 700;
@@ -432,6 +442,10 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   transition: 0.25s;
 }
 .slider-btn:hover { background: rgba(0,212,255,0.1); border-color: var(--accent-cyan); }
+.slider-btn:focus-visible, .slider-dots button:focus-visible, .slide .btn:focus-visible, .portfolio-cta-bar .btn:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
 .slider-dots { display: flex; gap: 0.6rem; }
 .slider-dots button {
   width: 12px;

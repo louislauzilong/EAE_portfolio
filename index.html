@@ -135,18 +135,18 @@
         <span class="section-label">My EAE Portfolio</span>
         <h2 class="glitch-hover">My journey through data analytics – presented as slides</h2>
       </div>
-      <div class="slider-container reveal">
-        <div class="slider-wrapper" id="sliderWrapper">
+      <div class="slider-container reveal" role="region" aria-label="My journey through data analytics presentation" aria-roledescription="carousel">
+        <div class="slider-wrapper" id="sliderWrapper" aria-live="polite">
           <!-- Slides injected by JS -->
         </div>
         <div class="portfolio-cta-bar reveal">
-          <a href="https://canva.link/puob1fo90o8rlx7" target="_blank" rel="noopener" class="btn btn-small">Click here for full portfolio</a>
+          <a href="assets/testimonials/EAE Portfolio.pptx.pptx" target="_blank" rel="noopener" download class="btn btn-small">Click here for full portfolio</a>
         </div>
         <div class="slider-controls">
-          <button class="slider-btn" id="prevSlide"><i class="bx bx-chevron-left"></i></button>
+          <button type="button" class="slider-btn" id="prevSlide" aria-label="Previous slide"><i class="bx bx-chevron-left"></i></button>
           <div class="slider-dots" id="dotsContainer"></div>
-          <span class="slide-number" id="slideNumber">1 / 12</span>
-          <button class="slider-btn" id="nextSlide"><i class="bx bx-chevron-right"></i></button>
+          <span class="slide-number" id="slideNumber" aria-live="polite">1 / 12</span>
+          <button type="button" class="slider-btn" id="nextSlide" aria-label="Next slide"><i class="bx bx-chevron-right"></i></button>
         </div>
       </div>
     </section>

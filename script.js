@@ -28,12 +28,12 @@ const slidesData = [
     `
   },
   {
-    title: "Nexus A*STAR Project Overview",
+    title: "Analysing Data to Solve Real-world Problems",
     content: `
       <p>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</p>
-      <p>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</p>
+      <p>I wanted to learn more about how people’s brains functioned, translating that into data. I researched previous studies on how music may affect memory and we designed and conducted our own tests.</p>
       <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img" />
-      <a href="#" class="btn btn-small">Click here for the poster in HD</a>
+      <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
     `
   },
   {
@@ -75,26 +75,26 @@ const slidesData = [
     `
   },
   {
-    title: "My Achievements / Leadership (Part 1)",
+    title: "My Achievements / Leadership",
     content: `
       <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img" />
-      <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</p>
+      <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I also spearheaded bonding-related activities, efforts to thank the canteen vendors, and promoted cyberwellness.</p>
       <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img" />
-      <p>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
+      <p>My team and I created a back massager with the aim to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
     `
   },
   {
-    title: "My Achievements / Leadership (Part 2)",
+    title: "My Achievements / Leadership",
     content: `
       <img src="assets/images/image.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
       <p>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</p>
       <img src="assets/images/VIA.webp" alt="CCA and VIA" class="slide-img" />
-      <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</p>
+      <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school.</p>
       <p>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</p>
     `
   },
   {
-    title: "My Choices in EAE courses",
+    title: "My Choices in EAE Courses",
     content: `
       <div class="course-grid">
         <div class="course-item">
@@ -103,7 +103,7 @@ const slidesData = [
             <li>Focuses specifically on data analytics</li>
             <li>Develop skills to support business decisions</li>
             <li>I take POA, so I can apply accounting skills</li>
-            <li>Learn how Big Data is harnessed</li>
+            <li>I want to learn more about big data and how it is harnessed</li>
           </ul>
         </div>
         <div class="course-item">
@@ -111,15 +111,15 @@ const slidesData = [
           <ul style="margin-top:0.5rem;">
             <li>Explore programming and machine learning</li>
             <li>Generate insights into analytics</li>
-            <li>Learn how people look at data</li>
+            <li>Learn how AI and data work together</li>
           </ul>
         </div>
         <div class="course-item">
           <strong>NP – Applied AI & Analytics (N81)</strong>
           <ul style="margin-top:0.5rem;">
             <li>Build knowledge in intelligent systems and AI</li>
-            <li>Incorporate AI and Data to make life convenient</li>
-            <li>Enhance digital literacy – my dad uses Power BI!</li>
+            <li>Incorporate AI and data to make life more convenient</li>
+            <li>Develop practical skills through industry-linked learning</li>
           </ul>
         </div>
       </div>
@@ -174,6 +174,8 @@ function renderSlides() {
   slidesData.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.setAttribute('data-index', i);
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.setAttribute('aria-current', i === currentSlide ? 'true' : 'false');
     dot.classList.toggle('active', i === 0);
     dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
@@ -185,6 +187,7 @@ function updateSlide() {
   wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
   document.querySelectorAll('.slider-dots button').forEach((dot, i) => {
     dot.classList.toggle('active', i === currentSlide);
+    dot.setAttribute('aria-current', i === currentSlide ? 'true' : 'false');
   });
   slideNumber.textContent = `${currentSlide + 1} / ${slidesData.length}`;
 }
