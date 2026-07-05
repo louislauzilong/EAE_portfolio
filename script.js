@@ -145,7 +145,7 @@ const slidesData = [
   {
     title: "My Achievements / Leadership (Part 1)",
     content: `
-      <img src="assets/images/image.png" alt="Certificate of Merit" class="slide-img landscape-image slide8-certificate" />
+      <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img landscape-image" />
       <ul>
         <li>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</li>
       </ul>
@@ -159,7 +159,7 @@ const slidesData = [
   {
     title: "My Achievements / Leadership (Part 2)",
     content: `
-      <img src="assets/images/image.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
+      <img src="assets/images/image.png" alt="Certificate of Merit" class="slide-img slide9-certificate" />
       <ul>
         <li>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</li>
       </ul>
