@@ -135,8 +135,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 }
 .hero-points,
 .compact-points,
-.card-points,
-.contact-points {
+.card-points {
   list-style: none;
   padding-left: 0;
   display: grid;
@@ -148,16 +147,14 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 }
 .hero-points li,
 .compact-points li,
-.card-points li,
-.contact-points li {
+.card-points li {
   position: relative;
   padding-left: 1.35rem;
   line-height: 1.7;
 }
 .hero-points li::before,
 .compact-points li::before,
-.card-points li::before,
-.contact-points li::before {
+.card-points li::before {
   content: "▹";
   position: absolute;
   left: 0;
@@ -177,15 +174,6 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 }
 .compact-project-points {
   gap: 0.5rem;
-}
-.contact-points {
-  gap: 0.9rem;
-}
-.contact-points li {
-  padding: 1rem 1rem 1rem 1.35rem;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
 }
 .home-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
 .social-icons { display: flex; flex-wrap: wrap; gap: 1rem; }
@@ -1212,7 +1200,6 @@ body.force-mobile-view .footer {
 }
 
 .card-points li,
-.contact-points li,
 .compact-points li {
   font-size: 0.98rem;
 }
