@@ -148,6 +148,12 @@
           <span class="slide-number" id="slideNumber" aria-live="polite">1 / 12</span>
           <button type="button" class="slider-btn" id="nextSlide" aria-label="Next slide"><i class="bx bx-chevron-right"></i></button>
         </div>
+        <div class="slider-fullscreen-control">
+          <span class="slider-fullscreen-label">View in full screen:</span>
+          <button type="button" class="slider-fullscreen-btn" id="fullscreenSlideBtn" aria-label="View slides in full screen" title="View slides in full screen">
+            <i class="bx bx-fullscreen"></i>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -241,6 +247,20 @@
       </div>
     </section>
   </main>
+
+  <div class="slide-fullscreen-overlay" id="slideFullscreenOverlay" aria-hidden="true">
+    <div class="slide-fullscreen-panel" role="dialog" aria-modal="true" aria-label="Slide viewer in full screen">
+      <button type="button" class="slide-fullscreen-close" id="slideFullscreenClose" aria-label="Close full screen view">
+        <i class="bx bx-x"></i>
+      </button>
+      <div class="slide-fullscreen-content" id="slideFullscreenContent"></div>
+      <div class="slide-fullscreen-controls">
+        <button type="button" class="slider-btn" id="slideFullscreenPrev" aria-label="Previous slide"><i class="bx bx-chevron-left"></i></button>
+        <span class="slide-fullscreen-counter" id="slideFullscreenCounter">1 / 12</span>
+        <button type="button" class="slider-btn" id="slideFullscreenNext" aria-label="Next slide"><i class="bx bx-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <p>© 2026 Louis Lau. 👨‍💻 Built with data &amp; ❤️</p>

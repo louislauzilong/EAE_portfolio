@@ -3,7 +3,9 @@ const slidesData = [
   {
     title: "My Journey through Data Analytics",
     content: `
-      <p style="font-size:1.3rem; text-align:center; margin-bottom:0.5rem;">Exploring patterns, solving problems and turning information into insight</p>
+      <ul>
+        <li style="font-size:1.3rem; text-align:center; list-style:none; padding-left:0;">Exploring patterns, solving problems and turning information into insight</li>
+      </ul>
       <div class="course-grid">
         <div class="course-item"><strong>TP</strong> Diploma in Big Data & Analytics (T60)</div>
         <div class="course-item"><strong>SP</strong> Diploma in AI and Analytics (S30)</div>
@@ -14,24 +16,30 @@ const slidesData = [
   {
     title: "About Me",
     content: `
-      <p>I am Louis from Beatty Secondary School and I am graduating in 2026.</p>
-      <p><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</p>
-      <p>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</p>
+      <ul>
+        <li>I am Louis from Beatty Secondary School and I am graduating in 2026.</li>
+        <li><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</li>
+        <li>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</li>
+      </ul>
       <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%;" />
     `
   },
   {
     title: "Why do I want to do Data Analytics?",
     content: `
-      <p>I was fascinated by how platforms such as TikTok are able to recommend content that matches users' interests (the For You Page). I learnt that these recommendations come from collecting and analysing large amounts of user data to provide added value.</p>
-      <p>When analysed effectively, data has the ability to reveal patterns, predict user behaviour and help organizations make better decisions. This sparked my curiosity on how data can influence decisions and improve services around us.</p>
+      <ul>
+        <li>I was fascinated by how platforms such as TikTok are able to recommend content that matches users' interests (the For You Page). I learnt that these recommendations come from collecting and analysing large amounts of user data to provide added value.</li>
+        <li>When analysed effectively, data has the ability to reveal patterns, predict user behaviour and help organizations make better decisions. This sparked my curiosity on how data can influence decisions and improve services around us.</li>
+      </ul>
     `
   },
   {
     title: "Nexus A*STAR Project Overview",
     content: `
-      <p>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</p>
-      <p>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</p>
+      <ul>
+        <li>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</li>
+        <li>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</li>
+      </ul>
       <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img" />
       <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
     `
@@ -39,17 +47,64 @@ const slidesData = [
   {
     title: "Data Analysis Process & Reflection",
     content: `
-      <p>Using Excel we calculated the average scores and plotted the data onto a graph to see the correlation between music and improved memory.</p>
-      <div class="table-wrap">
-        <table>
-          <tr><th>Role</th><th>Avg with music</th><th>Avg without music</th><th>Difference</th></tr>
-          <tr><td>Student</td><td>11.8</td><td>11.9</td><td>-0.1</td></tr>
-          <tr><td>Teacher</td><td>15.0</td><td>11.0</td><td>+4.0</td></tr>
-          <tr><td><strong>Overall</strong></td><td><strong>11.9</strong></td><td><strong>11.2</strong></td><td><strong>+0.7</strong></td></tr>
-        </table>
+      <ul>
+        <li>Using Excel we calculated the average scores and plotted the data onto a graph to see the correlation between music and improved memory.</li>
+      </ul>
+      <div class="data-visual-grid">
+        <div class="table-wrap">
+          <table>
+            <tr><th>Role</th><th>Avg with music</th><th>Avg without music</th><th>Difference</th></tr>
+            <tr><td>Student</td><td>11.8</td><td>11.9</td><td>-0.1</td></tr>
+            <tr><td>Teacher</td><td>15.0</td><td>11.0</td><td>+4.0</td></tr>
+            <tr><td><strong>Overall</strong></td><td><strong>11.9</strong></td><td><strong>11.2</strong></td><td><strong>+0.7</strong></td></tr>
+          </table>
+        </div>
+        <div class="chart-card" aria-label="Bar chart of memory test averages with and without music">
+          <svg viewBox="0 0 420 260" role="img" aria-labelledby="slide5ChartTitle slide5ChartDesc" preserveAspectRatio="xMidYMid meet">
+            <title id="slide5ChartTitle">Average memory scores with and without music</title>
+            <desc id="slide5ChartDesc">Teacher scores rise from 11.0 to 15.0 with music, while student and overall scores are near 12.</desc>
+
+            <line x1="52" y1="220" x2="392" y2="220" stroke="rgba(176,196,222,0.6)" stroke-width="1" />
+            <line x1="52" y1="180" x2="392" y2="180" stroke="rgba(176,196,222,0.2)" stroke-width="1" />
+            <line x1="52" y1="140" x2="392" y2="140" stroke="rgba(176,196,222,0.2)" stroke-width="1" />
+            <line x1="52" y1="100" x2="392" y2="100" stroke="rgba(176,196,222,0.2)" stroke-width="1" />
+            <line x1="52" y1="60" x2="392" y2="60" stroke="rgba(176,196,222,0.2)" stroke-width="1" />
+
+            <text x="40" y="224" fill="rgba(176,196,222,0.8)" font-size="12" text-anchor="end">0</text>
+            <text x="40" y="184" fill="rgba(176,196,222,0.8)" font-size="12" text-anchor="end">4</text>
+            <text x="40" y="144" fill="rgba(176,196,222,0.8)" font-size="12" text-anchor="end">8</text>
+            <text x="40" y="104" fill="rgba(176,196,222,0.8)" font-size="12" text-anchor="end">12</text>
+            <text x="40" y="64" fill="rgba(176,196,222,0.8)" font-size="12" text-anchor="end">16</text>
+
+            <rect x="63" y="102" width="34" height="118" rx="6" fill="rgba(0, 212, 255, 0.9)" />
+            <rect x="107" y="101" width="34" height="119" rx="6" fill="rgba(26, 107, 255, 0.9)" />
+            <text x="80" y="96" fill="#e8edf5" font-size="11" text-anchor="middle">11.8</text>
+            <text x="124" y="95" fill="#e8edf5" font-size="11" text-anchor="middle">11.9</text>
+
+            <rect x="181" y="70" width="34" height="150" rx="6" fill="rgba(0, 212, 255, 0.9)" />
+            <rect x="225" y="110" width="34" height="110" rx="6" fill="rgba(26, 107, 255, 0.9)" />
+            <text x="198" y="64" fill="#e8edf5" font-size="11" text-anchor="middle">15.0</text>
+            <text x="242" y="104" fill="#e8edf5" font-size="11" text-anchor="middle">11.0</text>
+
+            <rect x="299" y="101" width="34" height="119" rx="6" fill="rgba(0, 212, 255, 0.9)" />
+            <rect x="343" y="108" width="34" height="112" rx="6" fill="rgba(26, 107, 255, 0.9)" />
+            <text x="316" y="95" fill="#e8edf5" font-size="11" text-anchor="middle">11.9</text>
+            <text x="360" y="102" fill="#e8edf5" font-size="11" text-anchor="middle">11.2</text>
+
+            <text x="102" y="242" fill="rgba(176,196,222,0.9)" font-size="12" text-anchor="middle">Student</text>
+            <text x="220" y="242" fill="rgba(176,196,222,0.9)" font-size="12" text-anchor="middle">Teacher</text>
+            <text x="338" y="242" fill="rgba(176,196,222,0.9)" font-size="12" text-anchor="middle">Overall</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="legend-dot with-music"></i>With music</span>
+            <span><i class="legend-dot without-music"></i>Without music</span>
+          </div>
+        </div>
       </div>
-      <p>The project increased my interest in data collection and visual presentation. I learnt to look at data critically and understand that data science is about gaining insight and creating meaningful solutions.</p>
-      <p>This was my first leadership experience – I assigned tasks, led meet-ups, and ensured timelines were met. I adapted to different circumstances and solved problems creatively.</p>
+      <ul>
+        <li>The project increased my interest in data collection and visual presentation. I learnt to look at data critically and understand that data science is about gaining insight and creating meaningful solutions.</li>
+        <li>This was my first leadership experience – I assigned tasks, led meet-ups, and ensured timelines were met. I adapted to different circumstances and solved problems creatively.</li>
+      </ul>
       <a href="https://beattyss.sharepoint.com/:x:/s/2025Nexus3023A/IQBQcPStrfoIRpCPVol5a-jPAev6EZCbB202wrB5-4HWl34?e=dLRwtF" target="_blank" rel="noopener" class="btn btn-small">Click here for the raw data!</a>
     `
   },
@@ -82,28 +137,36 @@ const slidesData = [
         <li>Learnt coding fundamentals</li>
         <li>Designed a prototype with my team</li>
         <li>Improved design based on user feedback</li>
+        <li style="font-style:italic; color:var(--accent-cyan);">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</li>
       </ul>
-      <p style="font-style:italic; color:var(--accent-cyan); font-size:1.2rem;">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</p>
-      <img src="assets/images/microbit.png" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
+      <img src="assets/images/microbit.png" alt="Micro:bit" class="slide-img slide7-image rotated-landscape-image reverse" />
     `
   },
   {
     title: "My Achievements / Leadership (Part 1)",
     content: `
-      <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img" />
-      <p>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</p>
-      <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img" />
-      <p>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</p>
+      <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img landscape-image" />
+      <ul>
+        <li>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</li>
+      </ul>
+      <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img landscape-image rotated-landscape-image reverse" />
+      <ul>
+        <li>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</li>
+      </ul>
     `
   },
   {
     title: "My Achievements / Leadership (Part 2)",
     content: `
       <img src="assets/images/image.webp" alt="Young Engineer Award" class="slide-img" style="max-height:200px;" />
-      <p>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</p>
+      <ul>
+        <li>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</li>
+      </ul>
       <img src="assets/images/VIA.webp" alt="CCA and VIA" class="slide-img" />
-      <p>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</p>
-      <p>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</p>
+      <ul>
+        <li>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</li>
+        <li>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</li>
+      </ul>
     `
   },
   {
@@ -141,15 +204,19 @@ const slidesData = [
   {
     title: "Thank you for your consideration!",
     content: `
-      <p style="font-size:2.5rem; font-weight:700; color:var(--accent-cyan); text-align:center;">Lau Zi Long Louis</p>
-      <p style="font-size:1.4rem; text-align:center;">Looking forward to starting my Poly life in your school!</p>
+      <ul>
+        <li style="font-size:2.5rem; font-weight:700; color:var(--accent-cyan); text-align:center; list-style:none; padding-left:0;">Lau Zi Long Louis</li>
+        <li style="font-size:1.4rem; text-align:center; list-style:none; padding-left:0;">Looking forward to starting my Poly life in your school!</li>
+      </ul>
       <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%; margin-top:1rem;" />
     `
   },
   {
     title: "What is a Data Analyst?",
     content: `
-      <p style="font-size:1.6rem; font-weight:500; text-align:center;">A Data Analyst is a professional who collects, processes, and analyzes data to support decision making.</p>
+      <ul>
+        <li style="font-size:1.6rem; font-weight:500; text-align:center; list-style:none; padding-left:0;">A Data Analyst is a professional who collects, processes, and analyzes data to support decision making.</li>
+      </ul>
     `
   }
 ];
@@ -161,7 +228,15 @@ const dotsContainer = document.getElementById('dotsContainer');
 const slideNumber = document.getElementById('slideNumber');
 const prevBtn = document.getElementById('prevSlide');
 const nextBtn = document.getElementById('nextSlide');
+const fullscreenBtn = document.getElementById('fullscreenSlideBtn');
+const fullscreenOverlay = document.getElementById('slideFullscreenOverlay');
+const fullscreenContent = document.getElementById('slideFullscreenContent');
+const fullscreenCloseBtn = document.getElementById('slideFullscreenClose');
+const fullscreenPrevBtn = document.getElementById('slideFullscreenPrev');
+const fullscreenNextBtn = document.getElementById('slideFullscreenNext');
+const fullscreenCounter = document.getElementById('slideFullscreenCounter');
 const sliderContainer = document.querySelector('.slider-container');
+let lastFocusedElement = null;
 let touchStartX = 0;
 let touchStartY = 0;
 
@@ -231,8 +306,94 @@ function handleTouchEnd(event) {
   touchStartY = 0;
 }
 
+function renderFullscreenSlide() {
+  if (!fullscreenContent) return;
+  fullscreenContent.innerHTML = `
+    <div class="slide-shell">
+      <span class="slide-badge">Slide ${currentSlide + 1}</span>
+      <h2>${slidesData[currentSlide].title}</h2>
+      <div class="slide-body">${slidesData[currentSlide].content}</div>
+    </div>
+  `;
+  if (fullscreenCounter) {
+    fullscreenCounter.textContent = `${currentSlide + 1} / ${slidesData.length}`;
+  }
+}
+
+function openFullscreenView(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  if (!fullscreenOverlay) return;
+  lastFocusedElement = document.activeElement;
+  renderFullscreenSlide();
+  fullscreenOverlay.classList.add('active');
+  fullscreenOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  if (fullscreenCloseBtn) {
+    fullscreenCloseBtn.focus();
+  }
+}
+
+function closeFullscreenView() {
+  if (!fullscreenOverlay) return;
+  fullscreenOverlay.classList.remove('active');
+  fullscreenOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
+}
+
 prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
 nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+if (fullscreenBtn) {
+  fullscreenBtn.addEventListener('click', openFullscreenView);
+}
+if (fullscreenCloseBtn) {
+  fullscreenCloseBtn.addEventListener('click', closeFullscreenView);
+}
+if (fullscreenPrevBtn) {
+  fullscreenPrevBtn.addEventListener('click', () => {
+    goToSlide(currentSlide - 1);
+    renderFullscreenSlide();
+  });
+}
+if (fullscreenNextBtn) {
+  fullscreenNextBtn.addEventListener('click', () => {
+    goToSlide(currentSlide + 1);
+    renderFullscreenSlide();
+  });
+}
+if (fullscreenOverlay) {
+  fullscreenOverlay.addEventListener('click', (event) => {
+    if (event.target === fullscreenOverlay) closeFullscreenView();
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (!fullscreenOverlay || !fullscreenOverlay.classList.contains('active')) return;
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeFullscreenView();
+    return;
+  }
+
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    goToSlide(currentSlide - 1);
+    renderFullscreenSlide();
+    return;
+  }
+
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    goToSlide(currentSlide + 1);
+    renderFullscreenSlide();
+  }
+});
 
 if (sliderContainer) {
   sliderContainer.setAttribute('tabindex', '0');
