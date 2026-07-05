@@ -133,6 +133,60 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   max-width: 620px; line-height: 1.8; margin-bottom: 2rem;
   color: var(--text-color);
 }
+.hero-points,
+.compact-points,
+.card-points,
+.contact-points {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.hero-points {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 2rem;
+}
+.hero-points li,
+.compact-points li,
+.card-points li,
+.contact-points li {
+  position: relative;
+  padding-left: 1.35rem;
+  line-height: 1.7;
+}
+.hero-points li::before,
+.compact-points li::before,
+.card-points li::before,
+.contact-points li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent-cyan);
+}
+.hero-points li {
+  padding: 0.9rem 1rem 0.9rem 1.35rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+}
+.compact-points {
+  margin-top: 0.2rem;
+}
+.card-points {
+  margin-top: 0.2rem;
+}
+.compact-project-points {
+  gap: 0.5rem;
+}
+.contact-points {
+  gap: 0.9rem;
+}
+.contact-points li {
+  padding: 1rem 1rem 1rem 1.35rem;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+}
 .home-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
 .social-icons { display: flex; flex-wrap: wrap; gap: 1rem; }
 .social-icons a {
@@ -1147,6 +1201,21 @@ body.force-mobile-view .footer {
 .about-arrow { transition: transform 0.3s; }
 .about-expand[open] .about-arrow { transform: rotate(180deg); }
 .about-details-content p { margin-bottom: 1rem; }
+.about-details-content .compact-points {
+  margin-bottom: 0.25rem;
+}
+.about-details-content .compact-points li {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 0.95rem 1rem 0.95rem 1.35rem;
+}
+
+.card-points li,
+.contact-points li,
+.compact-points li {
+  font-size: 0.98rem;
+}
 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
