@@ -1108,10 +1108,14 @@ body.force-mobile-view .footer {
   overflow: auto;
   padding: 0.4rem 0.25rem 0.2rem;
 }
+.slide-fullscreen-content .slide {
+  aspect-ratio: auto;
+  min-height: 0;
+}
 .slide-fullscreen-content .slide-shell {
-  min-height: 520px;
-  aspect-ratio: 16 / 9;
-  justify-content: center;
+  min-height: min(74vh, 640px);
+  aspect-ratio: auto;
+  justify-content: flex-start;
 }
 .slide-fullscreen-controls {
   display: flex;
