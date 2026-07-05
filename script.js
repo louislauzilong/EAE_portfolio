@@ -3,9 +3,9 @@ const slidesData = [
   {
     title: "My Journey through Data Analytics",
     content: `
-      <ul>
-        <li style="font-size:1.3rem; text-align:center; list-style:none; padding-left:0;">Exploring patterns, solving problems and turning information into insight</li>
-      </ul>
+      <div class="slide-callout slide-hero-callout">
+        <p class="slide-hero-line"><strong>Exploring patterns</strong>, solving problems, and turning information into insight.</p>
+      </div>
       <div class="course-grid">
         <div class="course-item"><strong>TP</strong> Diploma in Big Data & Analytics (T60)</div>
         <div class="course-item"><strong>SP</strong> Diploma in AI and Analytics (S30)</div>
@@ -16,32 +16,47 @@ const slidesData = [
   {
     title: "About Me",
     content: `
-      <ul>
-        <li>I am Louis from Beatty Secondary School and I am graduating in 2026.</li>
-        <li><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</li>
-        <li>Outside of school I enjoy canoeing and playing video games like Valorant. I also watch Formula 1 in my free time!</li>
-      </ul>
-      <img src="assets/images/slide2-photo.jpeg" alt="Louis with cat" class="slide-img slide2-portrait" />
+      <div class="slide-split">
+        <div class="slide-copy">
+          <ul>
+            <li>I am <strong>Louis</strong> from <strong>Beatty Secondary School</strong> and I am graduating in <strong>2026</strong>.</li>
+            <li><strong>Subjects:</strong> English, Chinese, E-Maths, History & Geography (combined), Physics & Chemistry (combined), Principles of Accounting.</li>
+            <li>Outside of school I enjoy <strong>canoeing</strong> and playing video games like <strong>Valorant</strong>. I also watch <strong>Formula 1</strong> in my free time!</li>
+          </ul>
+        </div>
+        <div class="slide-media">
+          <img src="assets/images/slide2-photo.jpeg" alt="Louis with cat" class="slide-img slide2-portrait" />
+        </div>
+      </div>
     `
   },
   {
     title: "Why do I want to do Data Analytics?",
     content: `
+      <div class="slide-callout">
+        <p><strong>TikTok</strong> fascinated me because its <strong>For You Page</strong> shows how data can be used to recommend content that matches users' interests.</p>
+      </div>
       <ul>
-        <li>I was fascinated by how platforms such as TikTok are able to recommend content that matches users' interests (the For You Page). I learnt that these recommendations come from collecting and analysing large amounts of user data to provide added value.</li>
-        <li>When analysed effectively, data has the ability to reveal patterns, predict user behaviour and help organizations make better decisions. This sparked my curiosity on how data can influence decisions and improve services around us.</li>
+        <li>Those recommendations come from <strong>collecting and analysing large amounts of user data</strong> to provide added value.</li>
+        <li>When analysed effectively, data can <strong>reveal patterns</strong>, <strong>predict user behaviour</strong>, and help organisations make <strong>better decisions</strong>.</li>
       </ul>
     `
   },
   {
     title: "Nexus A*STAR Project Overview",
     content: `
-      <ul>
-        <li>I participated and led a team for a project under Nexus A*Star. The aim was to explore how data and technology-driven approaches could be used to address real-world problems.</li>
-        <li>I researched previous studies on how music may affect memory and we designed and conducted our own tests. We used Excel to collate the data and analyse trends.</li>
-      </ul>
-      <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img slide4-poster" />
-      <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
+      <div class="slide-split">
+        <div class="slide-copy">
+          <ul>
+            <li>I participated and led a team for a project under <strong>Nexus A*Star</strong> to explore how <strong>data</strong> and <strong>technology-driven approaches</strong> could solve real-world problems.</li>
+            <li>I researched previous studies on how <strong>classical piano music</strong> may affect <strong>memory</strong>, then designed and conducted our own tests. We used <strong>Excel</strong> to collate the data and analyse trends.</li>
+          </ul>
+          <a href="assets/testimonials/NX 3023_Research Proposal_Group 1.pdf" target="_blank" rel="noopener" class="btn btn-small">Click here for the poster in HD</a>
+        </div>
+        <div class="slide-media">
+          <img src="assets/images/nexus.png" alt="Nexus A*STAR poster" class="slide-img slide4-poster" />
+        </div>
+      </div>
     `
   },
   {
@@ -111,22 +126,28 @@ const slidesData = [
   {
     title: "What I plan to learn",
     content: `
-      <h3>My current skillset:</h3>
-      <ul>
-        <li>Excel for data analysis</li>
-        <li>Microbit programming</li>
-        <li>Research and identifying variables</li>
-        <li>Problem Solving</li>
-        <li>Leading a team</li>
-        <li>Data Interpretation</li>
-      </ul>
-      <h3>What I look forward to learn:</h3>
-      <ul>
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Machine Learning</li>
-        <li>More complex Data visualisation methods</li>
-      </ul>
+      <div class="slide-dual-panels">
+        <section class="slide-panel">
+          <h3>My current skill set</h3>
+          <ul class="slide-bigger-list">
+            <li><strong>Excel</strong> for data analysis</li>
+            <li><strong>Micro:bit</strong> programming</li>
+            <li><strong>Research</strong> and identifying variables</li>
+            <li><strong>Problem solving</strong></li>
+            <li><strong>Leading</strong> a team</li>
+            <li><strong>Data interpretation</strong></li>
+          </ul>
+        </section>
+        <section class="slide-panel">
+          <h3>What I look forward to learn</h3>
+          <ul class="slide-bigger-list">
+            <li><strong>Python</strong></li>
+            <li><strong>SQL</strong></li>
+            <li><strong>Machine learning</strong></li>
+            <li>More complex <strong>data visualisation</strong> methods</li>
+          </ul>
+        </section>
+      </div>
     `
   },
   {
@@ -147,12 +168,12 @@ const slidesData = [
     content: `
       <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img landscape-image" />
       <ul>
-        <li>As a peer support leader for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded bonding activities, efforts to thank canteen vendors, and promoted cyberwellness.</li>
+        <li>As a <strong>peer support leader</strong> for my class and CCA I look out for the people around me and provide a helping hand. I spearheaded <strong>bonding activities</strong>, efforts to thank canteen vendors, and promoted <strong>cyberwellness</strong>.</li>
       </ul>
       <a href="assets/images/term3-class-bonding-activities.pdf" target="_blank" rel="noopener" class="btn btn-small" aria-label="View some activities I did in PDF format">view some activities I did</a>
       <img src="assets/images/microbit.png" alt="Micro:bit prototype" class="slide-img landscape-image rotated-landscape-image reverse" />
       <ul>
-        <li>My team and I created a back massager to provide relief for the elderly. We learnt how to utilise Microbit in real-life situations and created solutions for people. I stepped up to lead the team and together we created a prototype.</li>
+        <li>My team and I created a <strong>back massager</strong> to provide relief for the <strong>elderly</strong>. We learnt how to utilise <strong>Micro:bit</strong> in real-life situations and created solutions for people. I stepped up to <strong>lead the team</strong> and together we created a prototype.</li>
       </ul>
     `
   },
@@ -161,12 +182,12 @@ const slidesData = [
     content: `
       <img src="assets/images/image.png" alt="Certificate of Merit" class="slide-img slide9-certificate" />
       <ul>
-        <li>For the Nexus A*Star Research our team was awarded <strong>Merit</strong> for our year-long project on data collection and analysis.</li>
+        <li>For the <strong>Nexus A*Star Research</strong> our team was awarded <strong><u>Merit</u></strong> for our year-long project on <strong>data collection</strong> and <strong>analysis</strong>.</li>
       </ul>
       <img src="assets/images/VIA.webp" alt="CCA and VIA" class="slide-img" />
       <ul>
-        <li>Throughout my time in Beatty Secondary, I was consistent in attending CCA sessions and participated in various competitions (Pesta Sukan, National School Games, Singapore Junior Canoeing Championship) representing my school!</li>
-        <li>My teacher also commended my efforts as a peer support leader during a class-initiated VIA project where we assisted the cleaning aunties and uncles clean up the school.</li>
+        <li>Throughout my time in <strong>Beatty Secondary</strong>, I was consistent in attending <strong>CCA</strong> sessions and participated in various competitions (<strong>Pesta Sukan</strong>, <strong>National School Games</strong>, <strong>Singapore Junior Canoeing Championship</strong>) representing my school!</li>
+        <li>My teacher also commended my efforts as a <strong>peer support leader</strong> during a class-initiated <strong>VIA</strong> project where we assisted the cleaning aunties and uncles clean up the school.</li>
       </ul>
     `
   },
@@ -205,18 +226,24 @@ const slidesData = [
   {
     title: "Thank you for your consideration!",
     content: `
-      <ul>
-        <li style="font-size:2.5rem; font-weight:700; color:var(--accent-cyan); text-align:center; list-style:none; padding-left:0;">Lau Zi Long Louis</li>
-        <li style="font-size:1.4rem; text-align:center; list-style:none; padding-left:0;">Looking forward to starting my Poly life in your school!</li>
-      </ul>
-      <img src="assets/images/portrait.png" alt="Louis" class="slide-img" style="max-height:200px; width:auto; border-radius:50%; margin-top:1rem;" />
+      <div class="slide-split slide-11-layout">
+        <div class="slide-copy slide-11-copy">
+          <p class="slide-11-name">Lau Zi Long Louis</p>
+          <p class="slide-11-message">Looking forward to starting my <strong>poly life</strong> in your school and continuing to grow as a learner, teammate, and problem solver.</p>
+          <p class="slide-11-finale">See you at poly.</p>
+          <p class="slide-11-badge slide-11-badge-end">Final slide</p>
+        </div>
+        <div class="slide-media">
+          <img src="assets/images/Slide 11.jpeg" alt="Louis mirror selfie" class="slide-img slide11-photo" />
+        </div>
+      </div>
     `
   },
   {
     title: "What is a Data Analyst?",
     content: `
       <ul>
-        <li style="font-size:1.6rem; font-weight:500; text-align:center; list-style:none; padding-left:0;">A Data Analyst is a professional who collects, processes, and analyzes data to support decision making.</li>
+        <li style="font-size:1.6rem; font-weight:500; text-align:center; list-style:none; padding-left:0;">A <strong>Data Analyst</strong> is a professional who <strong>collects</strong>, <strong>processes</strong>, and <strong>analyses</strong> data to support <strong>decision making</strong>.</li>
       </ul>
     `
   }
