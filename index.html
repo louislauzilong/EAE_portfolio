@@ -13,7 +13,7 @@
 <body>
   <header class="header">
     <a href="#home" class="logo"><span>Data</span>Portfolio</a>
-    <i class="bx bx-menu" id="menu-icon"></i>
+    <i class="bx bx-menu" id="menu-icon" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false"></i>
     <nav class="navbar" id="navbar">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -247,6 +247,11 @@
       </div>
     </section>
   </main>
+
+  <button type="button" class="mobile-view-toggle" id="mobileViewToggle" aria-pressed="false" aria-label="View in mobile preview mode">
+    <i class="bx bx-mobile-alt"></i>
+    <span>View in mobile</span>
+  </button>
 
   <div class="slide-fullscreen-overlay" id="slideFullscreenOverlay" aria-hidden="true">
     <div class="slide-fullscreen-panel" role="dialog" aria-modal="true" aria-label="Slide viewer in full screen">

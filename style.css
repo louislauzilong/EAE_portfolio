@@ -297,6 +297,136 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 .footer-links a { color: var(--text-color); transition: color 0.25s; }
 .footer-links a:hover { color: var(--accent-cyan); }
 
+.mobile-view-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1300;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(8, 13, 21, 0.9);
+  color: var(--text-strong);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+}
+.mobile-view-toggle i {
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+}
+.mobile-view-toggle:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+body.force-mobile-view {
+  max-width: 430px;
+  margin: 0 auto;
+  border-left: 1px solid rgba(255,255,255,0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  min-height: 100vh;
+}
+body.force-mobile-view .header {
+  width: min(100%, 430px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 4%;
+}
+body.force-mobile-view .nav-btn {
+  display: none;
+}
+body.force-mobile-view main {
+  padding-top: 96px;
+}
+body.force-mobile-view section {
+  padding: 3.5rem 4%;
+}
+body.force-mobile-view .home,
+body.force-mobile-view .about,
+body.force-mobile-view .contact-grid,
+body.force-mobile-view .project-card,
+body.force-mobile-view .input-row {
+  grid-template-columns: 1fr;
+}
+body.force-mobile-view .about {
+  padding: 2rem 1.15rem;
+}
+body.force-mobile-view .navbar {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(11,14,20,0.96);
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.2rem 5%;
+  gap: 0.85rem;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  display: none;
+}
+body.force-mobile-view .navbar.active {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+body.force-mobile-view #menu-icon {
+  display: block;
+}
+body.force-mobile-view .data-stats,
+body.force-mobile-view .about-highlights,
+body.force-mobile-view .testimonial-grid,
+body.force-mobile-view .slide .course-grid {
+  grid-template-columns: 1fr;
+}
+body.force-mobile-view .slider-container {
+  padding: 0.7rem;
+  border-radius: 22px;
+}
+body.force-mobile-view .slide {
+  min-height: auto;
+}
+body.force-mobile-view .slide-shell {
+  padding: 1.2rem 0.95rem;
+  border-radius: 20px;
+}
+body.force-mobile-view .slide h2 {
+  font-size: clamp(1.32rem, 5.3vw, 1.6rem);
+}
+body.force-mobile-view .slide p,
+body.force-mobile-view .slide li {
+  font-size: 1rem;
+}
+body.force-mobile-view .slide .slide7-image,
+body.force-mobile-view .slide .rotated-landscape-image {
+  max-height: 220px;
+}
+body.force-mobile-view .slider-controls {
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body.force-mobile-view .slider-fullscreen-control {
+  position: static;
+  margin-top: 0.75rem;
+  justify-content: center;
+}
+body.force-mobile-view .portfolio-cta-bar .btn {
+  width: 100%;
+}
+body.force-mobile-view .footer {
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: center;
+}
+
 /* SLIDER */
 .slider-container {
   position: relative;
@@ -755,6 +885,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   .home { grid-template-columns: 1fr; text-align: center; }
   .home-image { margin-top: 3rem; }
   .home-content h1 { font-size: 3rem; }
+  .nav-btn { display: none; }
   .navbar {
     position: absolute; top: 100%; left: 0; right: 0;
     background: rgba(11,14,20,0.96); flex-direction: column;
@@ -770,8 +901,17 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   .input-row { grid-template-columns: 1fr; }
   .data-stats { grid-template-columns: 1fr 1fr; }
   .slide { padding: 2rem 1.5rem; }
-  .slide h2 { font-size: 2.2rem; }
+  .slide { min-height: auto; }
+  .slide-shell { padding: 1.2rem 1rem; border-radius: 20px; }
+  .slide h2 { font-size: clamp(1.32rem, 5.2vw, 1.8rem); }
+  .slider-container { padding: 0.75rem; border-radius: 24px; }
+  .slider-controls { flex-wrap: wrap; gap: 0.7rem; }
+  .slider-fullscreen-control { position: static; margin-top: 0.7rem; justify-content: center; }
+  .portfolio-cta-bar .btn { width: 100%; }
+  .slide .rotated-landscape-image,
+  .slide .slide7-image { max-height: 220px; }
   .slider-btn { width: 40px; height: 40px; font-size: 1.5rem; }
+  .mobile-view-toggle { display: none; }
 }
 @media (max-width: 520px) {
   .data-stats { grid-template-columns: 1fr; }
