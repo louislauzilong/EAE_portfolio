@@ -229,9 +229,9 @@ const slidesData = [
       <div class="slide-split slide-11-layout">
         <div class="slide-copy slide-11-copy">
           <p class="slide-11-name">Lau Zi Long Louis</p>
-          <p class="slide-11-message">Looking forward to starting my <strong>poly life</strong> in your school and continuing to grow as a learner, teammate, and problem solver.</p>
-          <p class="slide-11-finale">See you at poly.</p>
-          <p class="slide-11-badge slide-11-badge-end">Final slide</p>
+          <p class="slide-11-message">Looking forward to starting my <strong>poly life</strong> in your school and continuing to grow as a learner, teammate, and problem solver!</p>
+          <p class="slide-11-finale">See you at poly!</p>
+          <p class="slide-11-badge slide-11-badge-end">The end!! :D</p>
         </div>
         <div class="slide-media">
           <img src="assets/images/Slide 11.jpeg" alt="Louis mirror selfie" class="slide-img slide11-photo" />
