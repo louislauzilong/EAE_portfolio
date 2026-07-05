@@ -73,7 +73,7 @@ button, input, textarea { font-family: inherit; }
 .logo span { color: var(--accent-cyan); }
 .navbar { display: flex; align-items: center; gap: 2rem; }
 .navbar a {
-  color: var(--text-color); font-size: 0.9rem; font-weight: 500;
+  color: var(--text-color); font-size: 0.98rem; font-weight: 500;
   transition: color 0.25s; position: relative;
 }
 .navbar a::after {
@@ -109,11 +109,11 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 .section-label {
   display: inline-block; margin-bottom: 1rem;
   color: var(--accent-cyan); text-transform: uppercase;
-  letter-spacing: 0.2em; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.18em; font-size: 0.82rem; font-weight: 600;
 }
 .section-header h2 {
   color: var(--text-strong);
-  font-size: clamp(2rem, 2.5vw, 2.8rem);
+  font-size: clamp(2.15rem, 2.7vw, 3rem);
   line-height: 1.1; margin-top: 0.8rem; max-width: 750px;
 }
 
@@ -122,7 +122,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   gap: 3rem; min-height: calc(100vh - 110px);
 }
 .home-content h1 {
-  font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.05;
+  font-size: clamp(3rem, 5.2vw, 4.5rem); line-height: 1.05;
   margin: 1rem 0 1.5rem;
 }
 .gradient-text {
@@ -130,7 +130,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 .home-content p {
-  max-width: 620px; line-height: 1.8; margin-bottom: 2rem;
+  max-width: 650px; line-height: 1.85; margin-bottom: 2rem; font-size: 1.05rem;
   color: var(--text-color);
 }
 .hero-points,
@@ -211,7 +211,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   object-fit: cover;
 }
 .about-content h2 { font-size: clamp(2rem, 2.8vw, 3.2rem); margin-bottom: 1.5rem; }
-.about-content p { line-height: 1.8; margin-bottom: 2rem; }
+.about-content p { line-height: 1.85; margin-bottom: 2rem; font-size: 1.05rem; }
 .about-highlights {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;
 }
@@ -220,10 +220,10 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   background: rgba(255,255,255,0.03); border: 1px solid var(--border);
 }
 .about-highlights strong {
-  display: block; font-size: 1.5rem; color: var(--text-strong);
+  display: block; font-size: 1.65rem; color: var(--text-strong);
   margin-bottom: 0.35rem; font-family: var(--font-mono);
 }
-.about-highlights span { font-size: 0.9rem; color: var(--text-color); }
+.about-highlights span { font-size: 0.98rem; color: var(--text-color); }
 
 .data-stats {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
@@ -235,10 +235,10 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   border: 1px solid var(--border);
 }
 .stat-item .number {
-  font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700;
+  font-family: var(--font-mono); font-size: 2.55rem; font-weight: 700;
   color: var(--accent-cyan); display: block;
 }
-.stat-item .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-color); }
+.stat-item .label { font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-color); }
 
 .grid-container {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -256,9 +256,9 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 }
 .card i { font-size: 2.6rem; color: var(--accent-cyan); margin-bottom: 1.4rem; }
 .card h3, .project-info h3 {
-  font-size: 1.4rem; margin-bottom: 1rem; color: var(--text-strong);
+  font-size: 1.52rem; margin-bottom: 1rem; color: var(--text-strong);
 }
-.card p, .project-info p { line-height: 1.8; color: var(--text-color); }
+.card p, .project-info p { line-height: 1.85; color: var(--text-color); font-size: 1.03rem; }
 
 .card .img-placeholder {
   margin-top: 1rem;
@@ -317,14 +317,14 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   box-shadow: 0 28px 80px rgba(0, 212, 255, 0.12);
 }
 .testimonial-quote {
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   line-height: 1.8;
   color: var(--text-strong);
   font-style: italic;
   margin-bottom: 1.5rem;
 }
 .testimonial-author {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--accent-cyan);
   font-weight: 700;
   margin-bottom: 1.25rem;
@@ -355,6 +355,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   background: rgba(255,255,255,0.02); border: 1px solid var(--border);
 }
 .contact-text p { line-height: 1.8; }
+.contact-text p { font-size: 1.05rem; line-height: 1.85; }
 .contact-form {
   display: grid; gap: 1.25rem;
   background: rgba(255,255,255,0.02); border-radius: 28px;
@@ -364,7 +365,7 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
 .contact-form input, .contact-form textarea {
   width: 100%; padding: 1rem 1.2rem; border-radius: 18px;
   border: 1px solid var(--border); background: rgba(255,255,255,0.04);
-  color: var(--text-strong); outline: none;
+  color: var(--text-strong); outline: none; font-size: 1rem;
 }
 .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent-cyan); }
 .contact-form textarea { resize: vertical; }
@@ -373,6 +374,8 @@ section { padding: 6rem 5%; scroll-margin-top: 140px; }
   padding: 2rem 5% 3rem; display: flex; justify-content: space-between;
   align-items: center; border-top: 1px solid var(--border);
 }
+.footer p { font-size: 0.98rem; }
+.footer-links { font-size: 0.98rem; }
 .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
 .footer-links a { color: var(--text-color); transition: color 0.25s; }
 .footer-links a:hover { color: var(--accent-cyan); }
