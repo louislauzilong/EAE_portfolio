@@ -75,6 +75,19 @@ const slidesData = [
     `
   },
   {
+    title: "Developing Solutions through Technology",
+    content: `
+      <h3>Micro:bit Experience</h3>
+      <ul>
+        <li>Learnt coding fundamentals</li>
+        <li>Designed a prototype with my team</li>
+        <li>Improved design based on user feedback</li>
+      </ul>
+      <p style="font-style:italic; color:var(--accent-cyan); font-size:1.2rem;">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</p>
+      <img src="assets/images/microbit.png" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
+    `
+  },
+  {
     title: "My Achievements / Leadership (Part 1)",
     content: `
       <img src="assets/images/image.webp" alt="Peer Support Leader" class="slide-img" />
@@ -137,19 +150,6 @@ const slidesData = [
     title: "What is a Data Analyst?",
     content: `
       <p style="font-size:1.6rem; font-weight:500; text-align:center;">A Data Analyst is a professional who collects, processes, and analyzes data to support decision making.</p>
-    `
-  },
-  {
-    title: "Developing Solutions through Technology",
-    content: `
-      <h3>Micro:bit Experience</h3>
-      <ul>
-        <li>Learnt coding fundamentals</li>
-        <li>Designed a prototype with my team</li>
-        <li>Improved design based on user feedback</li>
-      </ul>
-      <p style="font-style:italic; color:var(--accent-cyan); font-size:1.2rem;">"This experience introduced me to how technology can be combined with problem-solving to create useful solutions."</p>
-      <img src="assets/images/microbit.png" alt="Micro:bit" class="slide-img" style="max-height:200px;" />
     `
   }
 ];
