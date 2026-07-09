@@ -639,11 +639,6 @@ window.addEventListener('scroll', () => {
         submitButton.textContent = 'Sending...';
       }
 
-      if (contactForm.action.includes('formsubmit.co')) {
-        contactForm.submit();
-        return;
-      }
-
       const formData = new FormData(contactForm);
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 15000);
