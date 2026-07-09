@@ -634,14 +634,14 @@ window.addEventListener('scroll', () => {
         replyToField.value = emailField.value.trim();
       }
 
-      if (contactForm.action.includes('formsubmit.co')) {
-        contactForm.submit();
-        return;
-      }
-
       if (submitButton) {
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
+      }
+
+      if (contactForm.action.includes('formsubmit.co')) {
+        contactForm.submit();
+        return;
       }
 
       const formData = new FormData(contactForm);
