@@ -603,17 +603,30 @@ window.addEventListener('scroll', () => {
       const submitButton = contactForm.querySelector('button[type="submit"]');
       const messageField = contactForm.querySelector('textarea[name="message"]');
       const emailField = contactForm.querySelector('input[name="email"]');
+      const nameField = contactForm.querySelector('input[name="name"]');
+      const phoneField = contactForm.querySelector('input[name="phone"]');
+      const subjectField = contactForm.querySelector('input[name="subject"]');
       const replyToField = contactForm.querySelector('#form-replyto');
 
       if (formSuccess) { formSuccess.textContent = ''; formSuccess.style.display = 'none'; }
       if (formError) { formError.textContent = ''; formError.style.display = 'none'; }
 
-      if (messageField && !messageField.value.trim()) {
+      const valuesToCheck = [
+        nameField ? nameField.value.trim() : '',
+        emailField ? emailField.value.trim() : '',
+        phoneField ? phoneField.value.trim() : '',
+        subjectField ? subjectField.value.trim() : '',
+        messageField ? messageField.value.trim() : '',
+      ];
+
+      if (valuesToCheck.every((value) => !value)) {
         if (formError) {
-          formError.textContent = 'Please enter a message before sending.';
+          formError.textContent = 'Please fill in at least one field before sending.';
           formError.style.display = 'block';
         }
-        messageField.focus();
+        if (messageField) {
+          messageField.focus();
+        }
         return;
       }
 
