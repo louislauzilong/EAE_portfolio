@@ -600,29 +600,77 @@ window.addEventListener('scroll', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const messageField = contactForm.querySelector('textarea[name="message"]');
+
       if (formSuccess) { formSuccess.textContent = ''; formSuccess.style.display = 'none'; }
       if (formError) { formError.textContent = ''; formError.style.display = 'none'; }
+
+      if (messageField && !messageField.value.trim()) {
+        if (formError) {
+          formError.textContent = 'Please enter a message before sending.';
+          formError.style.display = 'block';
+        }
+        messageField.focus();
+        return;
+      }
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+      }
+
       const formData = new FormData(contactForm);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
+
       try {
         const response = await fetch(contactForm.action, {
           method: 'POST',
           headers: { Accept: 'application/json' },
           body: formData,
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
+
         if (response.ok) {
           showModal();
+          if (formSuccess) {
+            formSuccess.textContent = 'Message sent successfully. Thank you!';
+            formSuccess.style.display = 'block';
+          }
           contactForm.reset();
         } else {
-          const data = await response.json();
+          let errorMessage = 'There was a problem. Please try again.';
+          try {
+            const data = await response.json();
+            if (data && typeof data.error === 'string' && data.error.trim()) {
+              errorMessage = data.error;
+            }
+          } catch {
+            const rawText = await response.text();
+            if (rawText && rawText.trim()) {
+              errorMessage = rawText.trim();
+            }
+          }
           if (formError) {
-            formError.textContent = data.error || 'There was a problem. Please try again.';
+            formError.textContent = errorMessage;
             formError.style.display = 'block';
           }
         }
       } catch (error) {
+        clearTimeout(timeoutId);
         if (formError) {
-          formError.textContent = 'Network error. Please check your connection.';
+          formError.textContent = error.name === 'AbortError'
+            ? 'The request timed out. Please try again in a moment.'
+            : 'Network error. Please check your connection.';
           formError.style.display = 'block';
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
         }
       }
     });
