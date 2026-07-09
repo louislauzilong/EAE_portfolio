@@ -602,6 +602,8 @@ window.addEventListener('scroll', () => {
       e.preventDefault();
       const submitButton = contactForm.querySelector('button[type="submit"]');
       const messageField = contactForm.querySelector('textarea[name="message"]');
+      const emailField = contactForm.querySelector('input[name="email"]');
+      const replyToField = contactForm.querySelector('#form-replyto');
 
       if (formSuccess) { formSuccess.textContent = ''; formSuccess.style.display = 'none'; }
       if (formError) { formError.textContent = ''; formError.style.display = 'none'; }
@@ -613,6 +615,10 @@ window.addEventListener('scroll', () => {
         }
         messageField.focus();
         return;
+      }
+
+      if (replyToField && emailField) {
+        replyToField.value = emailField.value.trim();
       }
 
       if (submitButton) {
